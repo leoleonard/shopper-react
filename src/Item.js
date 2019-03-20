@@ -19,7 +19,6 @@ const Item = ({item, children}) => (
             </div>
             {children}
         </div>
-
     </div>
 );
 Item.propTypes = {

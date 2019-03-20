@@ -85,9 +85,6 @@ class App extends React.Component {
                 <main className="App-content">
                     {this.renderContent()}
                 </main>
-                <div>
-                    {this.state.cart.length} items
-                </div>
             </div>
         );
     }

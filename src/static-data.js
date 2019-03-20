@@ -18,6 +18,21 @@ let items = [{
     name: "Apple Watch Sport",
     description: "A watch", price: 249.99
 },
+    {
+        id: 4,
+        name: "Apple Watch Party",
+        description: "A party watch", price: 279.99
+    },
+    {
+        id: 5,
+        name: "Apple Magic Touchpad",
+        description: "Makes your life easier", price: 249.99
+    },
+    {
+        id: 6,
+        name: "Apple Watch Next",
+        description: "A watch", price: 249.99
+    },
 ];
 
 export {items};
