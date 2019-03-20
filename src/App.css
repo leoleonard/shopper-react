@@ -37,3 +37,12 @@
 .App-nav-item.selected {
     border-bottom-color: #FFAA3F;
 }
+
+.App-nav-cart-summary {
+    position: absolute;
+    right: 22%;
+    top: 10%;
+    font-size: 12px;
+}
+
+

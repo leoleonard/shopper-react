@@ -44,12 +44,16 @@ class App extends React.Component {
                     />
                 );
             case 1:
-                // return <CartPage items={items}/>;
-                return this.renderCart();
+                return (
+                    <CartPage
+                        items={this.computeCartItems()}
+                        onAddOne={this.handleAddToCart}
+                        onRemoveOne={this.handleRemoveOne}
+                    />)
         }
     }
 
-    renderCart() {
+    computeCartItems() {
         let itemCounts = this.state.cart.reduce((itemCounts, itemId) => {
             itemCounts[itemId] = itemCounts[itemId] || 0;
             itemCounts[itemId]++;
@@ -57,8 +61,8 @@ class App extends React.Component {
         }, {});
 
 
-        let cartItems = Object.keys(itemCounts).map(itemId => {
-            let item = items.find(item =>
+        return Object.keys(itemCounts).map(itemId => {
+            const item = items.find(item =>
                 item.id === parseInt(itemId, 10)
             );
 
@@ -67,14 +71,6 @@ class App extends React.Component {
                 count: itemCounts[itemId]
             }
         });
-
-        return (
-            <CartPage
-                items={cartItems}
-                onAddOne={this.handleAddToCart}
-                onRemoveOne={this.handleRemoveOne}
-            />
-        );
     }
 
 
@@ -83,7 +79,9 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Nav activeTab={activeTab}
-                     onTabChange={this.handleTabChange}/>
+                     onTabChange={this.handleTabChange}
+                     items={this.computeCartItems()}
+                />
                 <main className="App-content">
                     {this.renderContent()}
                 </main>
